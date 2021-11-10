@@ -66,7 +66,7 @@ class DataFromFNames(Dataset):
         fnames = list(zip(image_fnames, annatation_fnames))
 
     """
-
+    
     def __init__(self, fnamelists, shapes, random=False, random_crop=False,
                  fn_preprocess=None, dtypes=tf.float32,
                  enqueue_size=32, queue_size=256, nthreads=16,
@@ -130,6 +130,7 @@ class DataFromFNames(Dataset):
         '''
 
         # !k preload cities
+        """	
         src = "data/cities/oslo.tif"
         self.oslo = cv2.imread(src, -1)
         if len(self.oslo.shape) < 3:
@@ -142,6 +143,7 @@ class DataFromFNames(Dataset):
         self.trondheim = cv2.imread(src, -1)
         if len(self.trondheim.shape) < 3:
             self.trondheim = self.trondheim[..., np.newaxis]
+        """
 
     def process_fnamelists(self, fnamelist):
         if isinstance(fnamelist, list):
